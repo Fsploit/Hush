@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluxus-Z-Keysystem</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcZZVuvk-kDPLQH-tgID5WwpAsokE8pPlJNQ&usqp=CAU') no-repeat center center fixed;
+            background-size: cover;
+            filter: blur(8px);
+            z-index: 0;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header {
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInSlideDown 1.5s ease forwards;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+            color: #fff;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            color: #fff;
+        }
+
+        
+        .key-box {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            margin: 20px 0;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            color: white;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInSlideUp 1s ease forwards 1s; 
+        }
+
+        .key-box input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.2em;
+            text-align: center;
+            pointer-events: none;
+        }
+
+   
+        .copy-button {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 15px;
+            margin: 10px 0;
+            color: white;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.1s ease;
+            opacity: 0;
+            transform: translateY(50px); /* Start below */
+            animation: fadeInSlideUp 1s ease forwards 2s; /* Animation for button */
+        }
+
+        .copy-button:active {
+            transform: scale(0.95);
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.7);
+            opacity: 0;
+            animation: fadeIn 2s ease forwards 3s;
+        }
+
+        @keyframes fadeInSlideDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInSlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background"></div> 
+    
+    <div class="content">
+        <header>
+            <h1>Fluxus Z</h1>
+            <p>Thank you for using our hub!</p>
+        </header>
+
+        <div class="key-box">
+            <input type="text" value="Key-fluxus-Bdfg57Au" id="scriptKey" readonly>
+        </div>
+
+
+        <button class="copy-button" onclick="copyKey()">Copy Key</button>
+
+        <footer>
+            <p>©2024 FluxusZ all Rights reserved</p>
+        </footer>
+    </div>
+
+    <script>
+  
+        function copyKey() {
+            var keyInput = document.getElementById('scriptKey');
+            keyInput.select();
+            keyInput.setSelectionRange(0, 99999); 
+            document.execCommand('copy');
+            alert('Copied key : ' + keyInput.value);
+        }
+    </script>
+
+</body>
+</html>
